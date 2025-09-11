@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music</title>
+    <link rel="shortcut icon" href="/Resources/aj logo.jpg" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="back">
+      <!-- <video class="back-vdo" src="/Resources/Schedule.mp4" autoplay muted loop></video> -->
+       <img class="backImg" src="/assets/image/sch.jpg">
+    </div>
+    <div class="container">
+      <video class="front-vdo" src="/assets/video/Schedule.mp4" autoplay muted loop></video>
+
+
+      <div class="lower">
+        <div class="music">
+          <p class="songName">Schedule</p>
+
+          <input type="range" class="track-bar" value="0"/>
+          <div class="track">
+            <span class="currTime">0:00</span>
+            
+            <span class="mxDuration">0:00</span>
+          </div>
+        </div>
+        
+        <div class="controls">
+          <i class="fa-solid fa-repeat"></i>
+          <i class="fa-solid fa-backward"></i>
+          <i class="fa-solid fa-circle-play playButton"></i>
+          <i class="fa-solid fa-forward"></i>
+          <i class="fa-solid fa-shuffle"></i>
+        </div>
+
+        <div class="list">
+          <i class="fa-solid fa-volume-high"></i>
+          <input type="range" class="vol" value="100">
+          <span  class="logo">AJ Styles</span>
+          <i class="fa-brands fa-solid fa-soundcloud"></i>
+        </div>
+      </div>
+      <div class="songs">
+      <div class="xmark"><i class="fa-solid fa-xmark"></i></div>
+      <ul></ul>
+    </div>
+    </div>
+    <script src="musicList.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
