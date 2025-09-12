@@ -14,6 +14,7 @@ const frontVdo = document.querySelector(".front-vdo");
 
 const audio = new Audio("./assets/audio/SCHEDULE.mp3");
 
+
 // Wait until metadata is loaded to get duration
 audio.addEventListener("loadedmetadata", () => {
   mxDuration.innerHTML = formatTime(audio.duration);
@@ -78,7 +79,7 @@ function loadSong(index, autoplay = false){
         });
     }
 }
-loadSong(currentIndex, false);
+    // loadSong(currentIndex, false);
 
 forward.addEventListener("click", (e) => {
     currentIndex = (currentIndex + 1) % songs.length;
@@ -211,23 +212,68 @@ function populateSongList() {
     songList.innerHTML = '';
     songs.forEach((song, index) => {
         const li = document.createElement('li');
-        li.textContent = song.name;
+        li.classList.add('song-item');
         li.dataset.index = index;
-        
-        // Add active class if current song
-        if (index === currentIndex) {
-            li.classList.add('active');
-        }
-        
-        // Add click event to play song
+
+        // Create container for song details
+        const details = document.createElement('div');
+        details.classList.add('song-details');
+
+        const nameDiv = document.createElement('div');
+        nameDiv.textContent = song.name;
+        nameDiv.classList.add('song-name');
+
+        const authDiv = document.createElement('div');
+        authDiv.textContent = song.auth;
+        authDiv.classList.add('song-author');
+
+        details.appendChild(nameDiv);
+        details.appendChild(authDiv);
+
+        // Duration div
+        const durationDiv = document.createElement('div');
+        durationDiv.textContent = "00:00"; // Default before loading
+        durationDiv.classList.add('song-duration');
+
+        // Fetch and set the correct duration
+        getSongDuration(song, (duration) => {
+            durationDiv.textContent = duration;
+        });
+
+        // Handle click event to play song
         li.addEventListener('click', () => {
             currentIndex = index;
             loadSong(currentIndex, autoPlay);
             updateActiveSong();
         });
-        
+
+        // Highlight active song
+        if (index === currentIndex) {
+            li.classList.add('active');
+        }
+
+        // Append details and duration
+        li.appendChild(details);
+        li.appendChild(durationDiv);
+
         songList.appendChild(li);
     });
+}
+
+
+function getSongDuration(song, callback) {
+    const tempAudio = new Audio();
+    tempAudio.src = song.music;
+    tempAudio.addEventListener('loadedmetadata', () => {
+        const duration = formatTime(tempAudio.duration);
+        callback(duration);
+    });
+}
+
+function formatTime(seconds) {
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60).toString().padStart(2, '0');
+    return `${min}:${sec}`;
 }
 
 // Update active song in list
@@ -275,4 +321,14 @@ document.addEventListener("click", (e) => {
 // Prevent song list from closing when clicking inside it
 songsTab.addEventListener("click", (e) => {
     e.stopPropagation();
+});
+
+// Play a random song when the page loads
+window.addEventListener("load", () => {
+    const randomIndex = Math.floor(Math.random() * songs.length);
+    currentIndex = randomIndex;
+    loadSong(currentIndex, false);
+    if (isSongListVisible) {
+        updateActiveSong();
+    }
 });
