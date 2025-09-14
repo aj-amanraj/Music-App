@@ -191,7 +191,7 @@ document.addEventListener("click", (e) => {
 
 // SONG LIST TAB IMPLEMENTATION
 const songsTab = document.querySelector('.songs');
-const xmarkButton = document.querySelector('.xmark');
+const xmarkButton = document.querySelector('.fa-xmark');
 const songList = document.querySelector('.songs ul');
 let isSongListVisible = false;
 
@@ -199,9 +199,6 @@ let isSongListVisible = false;
 function addSongListHeading() {
     // Check if heading already exists
     if (!document.querySelector('.songs-header')) {
-        const header = document.createElement('div');
-        header.className = 'songs-header';
-        header.innerHTML = '<h3 class="songs-title">MUSIC LIST</h3>';
         songsTab.insertBefore(header, songsTab.firstChild);
     }
 }

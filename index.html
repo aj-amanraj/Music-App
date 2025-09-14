@@ -16,23 +16,29 @@
   </head>
   <body>
     <div class="back">
-       <img class="backImg" src="/assets/image/sch.jpg">
+      <img class="backImg" src="/assets/image/sch.jpg" />
     </div>
     <div class="container">
-      <video class="front-vdo" src="/assets/video/Schedule.mp4" autoplay muted loop></video>
+      <video
+        class="front-vdo"
+        src="/assets/video/Schedule.mp4"
+        autoplay
+        muted
+        loop
+      ></video>
 
       <div class="lower">
         <div class="music">
           <p class="songName">Schedule</p>
 
-          <input type="range" class="track-bar" value="0"/>
+          <input type="range" class="track-bar" value="0" />
           <div class="track">
             <span class="currTime">0:00</span>
-            
+
             <span class="mxDuration">0:00</span>
           </div>
         </div>
-        
+
         <div class="controls">
           <i class="fa-solid fa-repeat"></i>
           <i class="fa-solid fa-backward"></i>
@@ -42,16 +48,16 @@
         </div>
 
         <div class="list">
-          <i class="fa-solid fa-volume-high"></i>
-          <input type="range" class="vol" value="100">
-          <span  class="logo">AJ Styles</span>
+          <div class="vol-con"><i class="fa-solid fa-volume-high"></i>
+          <input type="range" class="vol" value="100" /></div>
+          <span class="logo">AJ Styles</span>
           <i class="fa-brands fa-solid fa-soundcloud"></i>
         </div>
+
+        <div class="songs"><div class="songs-header"><h3 class="songs-title">MUSIC LIST</h3><i class="fa-solid fa-xmark"></i></div></i>
+          <ul></ul>
+        </div>
       </div>
-      <div class="songs">
-      <div class="xmark"><i class="fa-solid fa-xmark"></i></div>
-      <ul></ul>
-    </div>
     </div>
     <script src="musicList.js"></script>
     <script src="script.js"></script>
