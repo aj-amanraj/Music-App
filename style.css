@@ -1,13 +1,15 @@
+html {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 12px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  min-height: 100vh;
-  margin: 0;
-  max-width: 90%;
-  padding: 0;
-  transition: all 0.3s ease-in-out;
   overflow: hidden;
 }
 
@@ -36,7 +38,8 @@ body {
   border-radius: 20px;
   overflow: hidden;
   background-color: rgb(0, 0, 0);
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   color: azure;
   transition: all 0.3s ease;
 }
@@ -177,9 +180,6 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
-
-
-
 .fa-volume-mute {
   color: #ff6b6b !important;
 }
@@ -236,7 +236,7 @@ body {
 
 /* Song List Header */
 .songs-header {
-  position: sticky; 
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -295,7 +295,7 @@ body {
 }
 
 .songs ul {
-  padding: 10px 20px 20px; 
+  padding: 10px 20px 20px;
   flex: 1;
   margin: 0;
   padding: 20px 20px;
@@ -361,63 +361,58 @@ body {
   z-index: 25;
 }
 
-
 @media (min-width: 768px) and (max-width: 1024px) {
   /* CSS rules for tablets */
   .container {
-  position: relative;
-  min-height: 750px;
-  width: 600px;
-  border-radius: 20px;
-}
+    position: relative;
+    min-height: 750px;
+    width: 600px;
+    border-radius: 20px;
+  }
 
+  .songName {
+    font-size: 34px;
+  }
 
-.songName {
-  font-size: 34px;
-}
+  .track-bar {
+    height: 6px;
+  }
 
-.track-bar {
-  height: 6px;
-}
+  .controls {
+    width: 70%;
+  }
 
-.controls {
-  width: 70%;
-}
+  .fa-solid {
+    font-size: xx-large;
+  }
 
-.fa-solid {
-  font-size: xx-large;
-}
+  .fa-solid:hover {
+    transform: scale(1.1);
+  }
 
-.fa-solid:hover {
-  transform: scale(1.1);
-}
+  .list {
+    height: 18%;
+  }
 
+  .songs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 390px;
+  }
 
-.list {
-  height: 18%;
-}
+  .fa-xmark {
+    cursor: pointer;
+    color: #282828;
+    font-size: 20px;
+    z-index: 25;
+  }
 
-.songs {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 390px;
-}
-
-.fa-xmark {
-  cursor: pointer;
-  color: #282828;
-  font-size: 20px;
-  z-index: 25;
-}
-
-.fa-circle-play,
-.fa-circle-pause {
-  font-size: 58px !important;
-  color: #74c0fc;
-}
-
-
+  .fa-circle-play,
+  .fa-circle-pause {
+    font-size: 58px !important;
+    color: #74c0fc;
+  }
 }
 
 @media (max-width: 480px) {
